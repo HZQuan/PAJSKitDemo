@@ -31,6 +31,11 @@
     }];
 }
 
+- (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary callBack:(responseCallback)callBack {
+    
+    
+}
+
 - (void) registerHandler {
     //注册测试模块
     SmartBridge *bridge = [SmartBridge shareManager];

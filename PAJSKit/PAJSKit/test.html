@@ -27,6 +27,22 @@
                        document.documentElement.removeChild(WVJBIframe)
                        }, 0)
         }
+    
+    function BATOpenRegist(name,callback) {
+        setupWebViewJavascriptBridge(function(bridge) {
+                                     bridge.registerHandler(name,
+                                                            callback
+                                                            )
+                                     
+                                     })
+                                     }
+    
+    BATOpenRegist('Test', function(data,responseCallBack){
+                    var a =1;
+                  responseCallBack(data);
+                    }
+                    )
+    
     function BATOpenCall(name,data, success, failure) {
         setupWebViewJavascriptBridge(function(bridge) {
                                      bridge.callHandler('Test1', data, function responseCallback(responseData) {
@@ -40,8 +56,7 @@
                                                         })
 
     }
-   
-        
+  
         
     </script>
     </head>
@@ -65,16 +80,12 @@
             <br> <br>
             
             <input type="button" id="button" value="扫描二维码" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            bridge.callHandler('Test1', {}, function responseCallback(responseData) {
             
             })
             })"/>
               <br> <br>
-              <input type="button" id="button" value="登录" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-              bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
-              
-              })
-              })"/>
+              <input type="button" id="button" value="登录" style="width:800px;height:100px;margin-top:50;" onclick=""/>
               <br> <br>
               <input type="button" id="button" value="获取企业或个人信息" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
               bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {

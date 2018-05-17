@@ -10,8 +10,13 @@
 #import "WebViewJavascriptBridge.h"
 #import "SmartBridge.h"
 
+typedef void(^responseCallback)(id data);
+
 @interface SmartWKWebView : WKWebView
 
 + (instancetype)shareManager;
-- (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary;
+
+-  (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary callBack:(responseCallback)callBack;
+-  (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary;
+
 @end

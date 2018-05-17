@@ -25,7 +25,7 @@
 
 - (void)testUIWebView {
     self.smartWebView = [SmartUIWebView shareManager];
-    self.smartWebView.frame =CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width,20);
+    self.smartWebView.frame =CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width,500);
     [self.view addSubview:self.smartWebView ];
     NSString *url = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"html"];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:url]];
@@ -33,12 +33,12 @@
   
 }
 - (IBAction)clickAction:(id)sender {
-     [self.smartWKWebView callHandlerWithName:@"Test" data:@{@"key":@"ceshi",@"key2":@8}];
+    [self.smartWKWebView callHandlerWithName:@"Test"data:@{@"name":@"黄增权",@"name2":@"凌代平"}];
 }
 
 - (void)testWKWebView {
     self.smartWKWebView = [SmartWKWebView shareManager];
-    self.smartWKWebView.frame =CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    self.smartWKWebView.frame =CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, 500);
     [self.view addSubview:self.smartWKWebView ];
     NSString *url = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"html"];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:url]];
