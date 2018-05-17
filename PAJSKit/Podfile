@@ -1,0 +1,4 @@
+platform:ios, '8.0'
+    target 'PAJSKit' do
+	pod 'WebViewJavascriptBridge', '~> 6.0'
+end
