@@ -13,6 +13,7 @@
 @interface SmartUIWebView : UIWebView
 
 + (instancetype)shareManager;
-- (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary;
+-  (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary;
+-  (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary callBack:(responseCallback)callBack;
 
 @end

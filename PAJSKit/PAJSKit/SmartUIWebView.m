@@ -11,7 +11,7 @@
 
 @interface SmartUIWebView()
 
-@property (nonatomic, strong) WebViewJavascriptBridge *bridge;
+@property (nonatomic,  strong) WebViewJavascriptBridge *bridge;
 
 @end
 
@@ -34,6 +34,9 @@
     }];
 }
 
+-(void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary callBack:(responseCallback)callBack {
+    [self.bridge callHandler:name data:dictionary responseCallback:callBack];
+}
 
 - (void) registerHandler {
     //注册测试模块

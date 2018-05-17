@@ -9,10 +9,9 @@
 #import <WebKit/WebKit.h>
 #import "WebViewJavascriptBridge.h"
 #import "SmartBridge.h"
+#import <WebKit/WKNavigationDelegate.h>
 
-typedef void(^responseCallback)(id data);
-
-@interface SmartWKWebView : WKWebView
+@interface SmartWKWebView : WKWebView <WKNavigationDelegate>
 
 + (instancetype)shareManager;
 

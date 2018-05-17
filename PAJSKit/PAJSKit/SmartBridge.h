@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "WebViewJavascriptBridge.h"
 
+typedef void(^responseCallback)(id data);
+
 @interface SmartBridge : NSObject
 
 + (instancetype)shareManager;
