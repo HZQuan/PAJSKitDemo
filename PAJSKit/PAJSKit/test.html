@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = 'utf-8'></meta>
+        <title>OC与JS的互调</title>
+        <style type="text/css">
+            * {
+                font-size: 40px;
+            }
+        </style>
+    <script type="text/javascript">
+        function setupWebViewJavascriptBridge(callback)
+        {
+            if (window.WebViewJavascriptBridge) {
+                return callback(WebViewJavascriptBridge);
+            }
+            if (window.WVJBCallbacks) {
+                return window.WVJBCallbacks.push(callback);
+            }
+            window.WVJBCallbacks = [callback];
+            var WVJBIframe = document.createElement('iframe');
+            WVJBIframe.style.display = 'none';
+            WVJBIframe.src = 'https://__bridge_loaded__';
+            document.documentElement.appendChild(WVJBIframe);
+            setTimeout(function ()
+                       {
+                       document.documentElement.removeChild(WVJBIframe)
+                       }, 0)
+        }
+    function BATOpenRegister(name,data, success, failure) {
+        setupWebViewJavascriptBridge(function(bridge) {
+                                     bridge.callHandler('Test1', data, function responseCallback(responseData) {
+                                                        var a =responseData.code;
+                                                        if(a == 0) {
+                                                        failure();
+                                                        }else{
+                                                        success(responseData);
+                                                        }
+                                                        })
+                                                        })
+
+    }
+   
+        
+        
+    </script>
+    </head>
+    
+    <body>
+        
+        <div style="margin-top: 100px">
+            <h1>OC与JS的互调</h1>
+            <input type="button" id="button" value="点击" onclick="BATOpenRegister('Test1',{'key':'value5'},function success(responseData){
+                var value = responseData.key1;
+                var value2 = responseData.key2;
+                },function failure() {
+                //处理失败的情况
+                })"/>
+            <br>
+            <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            })
+            })"/>
+            <br>
+            <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>
+            <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>  <input type="button" id="button" value="点击" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+            bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+            
+            })
+            })"/>
+            <br>
+        </div>
+    </body>
+</html>
+
