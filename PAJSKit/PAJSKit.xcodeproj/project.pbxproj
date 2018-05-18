@@ -18,6 +18,7 @@
 		27158E9120AC01E60028CA41 /* SmartWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27158E9020AC01E60028CA41 /* SmartWKWebView.m */; };
 		27158E9420AC03980028CA41 /* SmartBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 27158E9320AC03980028CA41 /* SmartBridge.m */; };
 		271AC9C220AD78F700B86A5D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271AC9C120AD78F700B86A5D /* WebKit.framework */; };
+		271AC9C520AEA6B200B86A5D /* WKWebView+Smart.m in Sources */ = {isa = PBXBuildFile; fileRef = 271AC9C420AEA6B200B86A5D /* WKWebView+Smart.m */; };
 		952A3F438ADEA0149A44648B /* libPods-PAJSKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E414B0CE3D32F03DDC8A3E /* libPods-PAJSKit.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,8 @@
 		27158E9220AC03980028CA41 /* SmartBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartBridge.h; sourceTree = "<group>"; };
 		27158E9320AC03980028CA41 /* SmartBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartBridge.m; sourceTree = "<group>"; };
 		271AC9C120AD78F700B86A5D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		271AC9C320AEA6B200B86A5D /* WKWebView+Smart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+Smart.h"; sourceTree = "<group>"; };
+		271AC9C420AEA6B200B86A5D /* WKWebView+Smart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+Smart.m"; sourceTree = "<group>"; };
 		6B06D543A02BDF3BBEE21993 /* Pods-PAJSKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAJSKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PAJSKit/Pods-PAJSKit.debug.xcconfig"; sourceTree = "<group>"; };
 		C2EDFFDEF6D79EF0D6481C58 /* Pods-PAJSKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAJSKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-PAJSKit/Pods-PAJSKit.release.xcconfig"; sourceTree = "<group>"; };
 		D0E414B0CE3D32F03DDC8A3E /* libPods-PAJSKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PAJSKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +107,8 @@
 				27158E9220AC03980028CA41 /* SmartBridge.h */,
 				27158E9320AC03980028CA41 /* SmartBridge.m */,
 				27158E8D20ABCF870028CA41 /* test.html */,
+				271AC9C320AEA6B200B86A5D /* WKWebView+Smart.h */,
+				271AC9C420AEA6B200B86A5D /* WKWebView+Smart.m */,
 			);
 			path = PAJSKit;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				27158E9420AC03980028CA41 /* SmartBridge.m in Sources */,
 				27158E9120AC01E60028CA41 /* SmartWKWebView.m in Sources */,
 				27158E7120ABC3490028CA41 /* ViewController.m in Sources */,
+				271AC9C520AEA6B200B86A5D /* WKWebView+Smart.m in Sources */,
 				27158E8C20ABC9DF0028CA41 /* SmartUIWebView.m in Sources */,
 				27158E7C20ABC34E0028CA41 /* main.m in Sources */,
 				27158E6E20ABC3490028CA41 /* AppDelegate.m in Sources */,

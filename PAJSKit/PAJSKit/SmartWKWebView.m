@@ -9,24 +9,18 @@
 #import "SmartWKWebView.h"
 @interface SmartWKWebView()
 
-@property (nonatomic, strong) WebViewJavascriptBridge *bridge;
+
 @property (nonatomic, weak) UIProgressView *progressView;
 
 @end
 
 @implementation SmartWKWebView
 
-+ (instancetype)shareManager {
-    static dispatch_once_t onceToken;
-    static SmartWKWebView *smartWebVeiw;
-    dispatch_once(&onceToken, ^{
++ (instancetype)createWebView {
+        SmartWKWebView *smartWebVeiw;
         smartWebVeiw = [[SmartWKWebView alloc] init];
-        smartWebVeiw.bridge = [WebViewJavascriptBridge bridgeForWebView:smartWebVeiw];
         [smartWebVeiw createUI];
-        [smartWebVeiw.bridge setWebViewDelegate:smartWebVeiw];
-        [smartWebVeiw registerHandler];
-    });
-    return smartWebVeiw;
+        return smartWebVeiw;
 }
 
 - (void)createUI {
@@ -55,19 +49,13 @@
 
 //name web端提供给原生调用的js方法 data:调用时候传递的参数
 - (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary {
-    [self.bridge callHandler:name data:dictionary responseCallback:^(id responseData) {
+    [self.jsBridge callHandler:name data:dictionary responseCallback:^(id responseData) {
         NSLog(@"ObjC received response: %@", responseData);
     }];
 }
 
 - (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary callBack:(responseCallback)callBack {
-    [self.bridge callHandler:name data:dictionary responseCallback:callBack];
-}
-
-- (void) registerHandler {
-    //注册测试模块
-    SmartBridge *bridge = [SmartBridge shareManager];
-    [bridge  registerWithBridge:self.bridge];
+    [self.jsBridge callHandler:name data:dictionary responseCallback:callBack];
 }
 
 #pragma mark --wkwebviewdelegate
@@ -117,14 +105,20 @@
 
 #pragma mark 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    
+    if(self.webViewDelegate) {
+        [self.webViewDelegate webView:webView didFinishNavigation:navigation];
+    }
 }
 
 #pragma mark 页面加载失败时调用
 -  (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    
-    
+    if(self.webViewDelegate){
+        [self.webViewDelegate webView:webView didFailProvisionalNavigation:navigation withError:error];
+    }
 }
 
+
+- (void)dealloc {
+}
 
 @end

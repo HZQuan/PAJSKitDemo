@@ -17,7 +17,7 @@
 
 @implementation SmartUIWebView
 
-+ (instancetype)shareManager {
++ (instancetype)createWebView {
     static dispatch_once_t onceToken;
     static SmartUIWebView *smartWebVeiw;
     dispatch_once(&onceToken, ^{
