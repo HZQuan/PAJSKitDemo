@@ -25,14 +25,6 @@
         responseCallback(dic);
         
     }];
-    [bridge registerHandler:@"Test2" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"ObjC Echo called with: %@", data);
-        responseCallback(data);
-    }];
-    [bridge registerHandler:@"Test3" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"ObjC Echo called with: %@", data);
-        responseCallback(data);
-    }];
 }
 
 @end

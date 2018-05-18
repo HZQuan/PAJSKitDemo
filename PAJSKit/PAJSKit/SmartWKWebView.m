@@ -23,7 +23,6 @@
         smartWebVeiw = [[SmartWKWebView alloc] init];
         smartWebVeiw.bridge = [WebViewJavascriptBridge bridgeForWebView:smartWebVeiw];
         [smartWebVeiw createUI];
-//        smartWebVeiw.navigationDelegate = smartWebVeiw;
         [smartWebVeiw.bridge setWebViewDelegate:smartWebVeiw];
         [smartWebVeiw registerHandler];
     });
@@ -63,7 +62,6 @@
 
 - (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary callBack:(responseCallback)callBack {
     [self.bridge callHandler:name data:dictionary responseCallback:callBack];
-    
 }
 
 - (void) registerHandler {
@@ -71,9 +69,9 @@
     SmartBridge *bridge = [SmartBridge shareManager];
     [bridge  registerWithBridge:self.bridge];
 }
+
 #pragma mark --wkwebviewdelegate
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    NSLog(@"%s",__FUNCTION__);
     /**
      *typedef NS_ENUM(NSInteger, WKNavigationActionPolicy) {
      WKNavigationActionPolicyCancel, // 取消
@@ -84,53 +82,48 @@
 }
 
 #pragma mark 身份验证
-//- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *__nullable credential))completionHandler {
-//    NSLog(@"%s",__FUNCTION__);
-//    // 不要证书验证
-//    completionHandler(NSURLSessionAuthChallengeUseCredential, nil);
-//}
-//
-//#pragma mark 在收到响应后，决定是否跳转
-//- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
-//    NSLog(@"%s",__FUNCTION__);
-//    decisionHandler(WKNavigationResponsePolicyAllow);
-//}
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *__nullable credential))completionHandler {
+    // 不要证书验证
+    completionHandler(NSURLSessionAuthChallengeUseCredential, nil);
+}
+
+#pragma mark 在收到响应后，决定是否跳转
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    decisionHandler(WKNavigationResponsePolicyAllow);
+}
 
 #pragma mark 接收到服务器跳转请求之后调用
 - (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
-    NSLog(@"%s",__FUNCTION__);
 }
 
 #pragma mark WKNavigation导航错误
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    NSLog(@"%s",__FUNCTION__);
 }
 
 #pragma mark WKWebView终止
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView {
-    NSLog(@"%s",__FUNCTION__);
 }
 
 #pragma mark - WKNavigationDelegate 页面加载
 #pragma mark 页面开始加载时调用
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
-    NSLog(@"%s",__FUNCTION__);
+    
 }
 
 #pragma mark 当内容开始返回时调用
 - (void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation {
-    NSLog(@"%s",__FUNCTION__);
+    
 }
 
 #pragma mark 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    NSLog(@"%s",__FUNCTION__);
+    
 }
 
 #pragma mark 页面加载失败时调用
 -  (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    NSLog(@"%s",__FUNCTION__);
-    NSLog(@"%@", error.localizedDescription);
+    
+    
 }
 
 
