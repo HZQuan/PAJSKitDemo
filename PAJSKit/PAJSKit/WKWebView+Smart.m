@@ -13,6 +13,8 @@
 
 @implementation WKWebView(Smart) 
 
+@dynamic jsBridge;
+
 //static char *jsBridge = "bridge";
 
 + (void)load {
@@ -48,7 +50,7 @@
     [jsBridge setWebViewDelegate:webView];
     SmartBridge *bridge = [SmartBridge shareManager];
     [bridge registerWithBridge:jsBridge];
-    webView.jsBridge = jsBridge;
+   webView.jsBridge = jsBridge;
     return webView;
 }
 
