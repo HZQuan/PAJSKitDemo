@@ -19,6 +19,7 @@
 		27158E9420AC03980028CA41 /* SmartBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 27158E9320AC03980028CA41 /* SmartBridge.m */; };
 		271AC9C220AD78F700B86A5D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271AC9C120AD78F700B86A5D /* WebKit.framework */; };
 		271AC9C520AEA6B200B86A5D /* WKWebView+Smart.m in Sources */ = {isa = PBXBuildFile; fileRef = 271AC9C420AEA6B200B86A5D /* WKWebView+Smart.m */; };
+		27D9A47A20BD725E00C6C3BA /* SmartWebViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D9A47920BD725E00C6C3BA /* SmartWebViewManager.m */; };
 		952A3F438ADEA0149A44648B /* libPods-PAJSKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E414B0CE3D32F03DDC8A3E /* libPods-PAJSKit.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		271AC9C120AD78F700B86A5D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		271AC9C320AEA6B200B86A5D /* WKWebView+Smart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+Smart.h"; sourceTree = "<group>"; };
 		271AC9C420AEA6B200B86A5D /* WKWebView+Smart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+Smart.m"; sourceTree = "<group>"; };
+		27D9A47820BD725E00C6C3BA /* SmartWebViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartWebViewManager.h; sourceTree = "<group>"; };
+		27D9A47920BD725E00C6C3BA /* SmartWebViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartWebViewManager.m; sourceTree = "<group>"; };
 		6B06D543A02BDF3BBEE21993 /* Pods-PAJSKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAJSKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PAJSKit/Pods-PAJSKit.debug.xcconfig"; sourceTree = "<group>"; };
 		C2EDFFDEF6D79EF0D6481C58 /* Pods-PAJSKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAJSKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-PAJSKit/Pods-PAJSKit.release.xcconfig"; sourceTree = "<group>"; };
 		D0E414B0CE3D32F03DDC8A3E /* libPods-PAJSKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PAJSKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +112,8 @@
 				27158E8D20ABCF870028CA41 /* test.html */,
 				271AC9C320AEA6B200B86A5D /* WKWebView+Smart.h */,
 				271AC9C420AEA6B200B86A5D /* WKWebView+Smart.m */,
+				27D9A47820BD725E00C6C3BA /* SmartWebViewManager.h */,
+				27D9A47920BD725E00C6C3BA /* SmartWebViewManager.m */,
 			);
 			path = PAJSKit;
 			sourceTree = "<group>";
@@ -133,8 +138,6 @@
 				27158E6520ABC3490028CA41 /* Sources */,
 				27158E6620ABC3490028CA41 /* Frameworks */,
 				27158E6720ABC3490028CA41 /* Resources */,
-				DBBF8DF1D7BE8947B9268C82 /* [CP] Embed Pods Frameworks */,
-				323E8D62623F370AC255896B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,21 +195,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		323E8D62623F370AC255896B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PAJSKit/Pods-PAJSKit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		36AAB6BCF1BB531598E06DDF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,21 +213,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DBBF8DF1D7BE8947B9268C82 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PAJSKit/Pods-PAJSKit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -250,6 +223,7 @@
 				27158E9420AC03980028CA41 /* SmartBridge.m in Sources */,
 				27158E9120AC01E60028CA41 /* SmartWKWebView.m in Sources */,
 				27158E7120ABC3490028CA41 /* ViewController.m in Sources */,
+				27D9A47A20BD725E00C6C3BA /* SmartWebViewManager.m in Sources */,
 				271AC9C520AEA6B200B86A5D /* WKWebView+Smart.m in Sources */,
 				27158E8C20ABC9DF0028CA41 /* SmartUIWebView.m in Sources */,
 				27158E7C20ABC34E0028CA41 /* main.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WebViewJavascriptBridge.h"
+#import "SmartWebViewManager.h"
 
 typedef void(^responseCallback)(id data);
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SmartUIWebView.h"
+#import "YYKit.h"
 
 @interface ViewController : UIViewController
 

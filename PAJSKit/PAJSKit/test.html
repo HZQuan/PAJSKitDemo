@@ -45,7 +45,7 @@
     
     function BATOpenCall(name,data, success, failure) {
         setupWebViewJavascriptBridge(function(bridge) {
-                                     bridge.callHandler('Test1', data, function responseCallback(responseData) {
+                                     bridge.callHandler(name, data, function responseCallback(responseData) {
                                                         var a =responseData.code;
                                                         if(a == 0) {
                                                         failure();
@@ -65,7 +65,7 @@
         
         <div style="margin-top: 100px">
             <h1>OC与JS的互调</h1>
-            <input type="button" id="button" style="width:600px;height:100px;margin-top:50;"   value="关闭WebView" onclick="BATOpenCall('Test1',{'key':'value5'},function success(responseData){
+            <input type="button" id="button" style="width:600px;height:100px;margin-top:50;"   value="关闭WebView" onclick="BATOpenCall('closeWebView',{'key':'value5'},function success(responseData){
                 var value = responseData.key1;
                 var value2 = responseData.key2;
                 },function failure() {
@@ -106,7 +106,13 @@
               })"/>
               <br> <br>
               <input type="button" id="button" value="显示隐藏头部" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-              bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+              bridge.callHandler('showNavigationBar', {'key':'value'}, function responseCallback(responseData) {
+              
+              })
+              })"/>
+              <br> <br>
+              <input type="button" id="button" value="隐藏头部" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+              bridge.callHandler('hiddenNavigationBar', {'key':'value'}, function responseCallback(responseData) {
               
               })
               })"/>
