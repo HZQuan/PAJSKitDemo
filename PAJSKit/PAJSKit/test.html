@@ -98,7 +98,13 @@
               })"/>
               <br> <br>
               <input type="button" id="button" value="拍照" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-              bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+              bridge.callHandler('takePhoto', {'key':'value'}, function responseCallback(responseData) {
+              
+              javascript:setupWebViewJavascriptBridge(function(bridge) {
+              bridge.callHandler('Test1', {'key':responseData}, function responseCallback(responseData) {
+              })
+              })
+              
               
               })
               })"/>

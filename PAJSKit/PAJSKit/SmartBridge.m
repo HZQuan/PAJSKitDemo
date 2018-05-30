@@ -8,7 +8,8 @@
 
 #import "SmartBridge.h"
 #import "YYKit.h"
-#import "WCQRCodeScanningVC.h"
+#import "SmartQRCodeScanningVC.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation SmartBridge
 
@@ -51,13 +52,18 @@
         NSString *title = [dic objectForKey:@"title"];
         [self setNavigationTitle:title];
     }];
-    
+    //扫描二维码
     [bridge registerHandler:@"scanQRCode" handler:^(id data, WVJBResponseCallback responseCallback) {
-        WCQRCodeScanningVC *wcQRCodeScanningVC = [[WCQRCodeScanningVC alloc] init];
+        SmartQRCodeScanningVC *wcQRCodeScanningVC = [[SmartQRCodeScanningVC alloc] init];
         wcQRCodeScanningVC.scanCallback = ^(NSString *scanStr) {
             responseCallback(@{@"scanStr":scanStr});
         };
         [[self topViewController].navigationController pushViewController:wcQRCodeScanningVC animated:YES ];
+    }];
+    //拍照
+    [bridge registerHandler:@"takePhoto" handler:^(id data, WVJBResponseCallback responseCallback) {
+        SmartTakePhotoKit *smartTakePhotoKit =  [SmartTakePhotoKit shareManager];
+        [smartTakePhotoKit startGetPhotoWithBridgeback:responseCallback];
     }];
     
     
@@ -132,6 +138,8 @@
         return vc;
     }
 }
+
+
 
 
 

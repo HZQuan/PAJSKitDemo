@@ -1,15 +1,12 @@
-//
-//  WCQRCodeScanningVC.m
-//  SGQRCodeExample
-//
-//  Created by kingsic on 17/3/20.
+
+//  Created by 黄增权 on 18/5/28.
 //  Copyright © 2017年 kingsic. All rights reserved.
 //
 
-#import "WCQRCodeScanningVC.h"
+#import "SmartQRCodeScanningVC.h"
 #import "SGQRCode.h"
 
-@interface WCQRCodeScanningVC () <SGQRCodeScanManagerDelegate, SGQRCodeAlbumManagerDelegate>
+@interface SmartQRCodeScanningVC () <SGQRCodeScanManagerDelegate, SGQRCodeAlbumManagerDelegate>
 @property (nonatomic, strong) SGQRCodeScanManager *manager;
 @property (nonatomic, strong) SGQRCodeScanningView *scanningView;
 @property (nonatomic, strong) UIButton *flashlightBtn;
@@ -18,7 +15,7 @@
 @property (nonatomic, strong) UIView *bottomView;
 @end
 
-@implementation WCQRCodeScanningVC
+@implementation SmartQRCodeScanningVC
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -42,7 +39,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor clearColor];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if (@available(iOS 11, *)) {
+         self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+#pragma clang diagnostic pop
     [self.view addSubview:self.scanningView];
     [self setupNavigationBar];
     [self setupQRCodeScanning];
@@ -116,10 +118,14 @@
         
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
         if (self.scanCallback) {
-            self.scanCallback(obj.stringValue);
+          self.scanCallback(obj.stringValue);
            [self.navigationController popViewControllerAnimated:YES];
         }
     } else {
+        if (self.scanCallback) {
+            self.scanCallback(@"can not scan qrcode");
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         NSLog(@"暂未识别出扫描的二维码");
     }
 }
