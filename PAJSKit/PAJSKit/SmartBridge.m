@@ -10,6 +10,7 @@
 #import "YYKit.h"
 #import "SmartQRCodeScanningVC.h"
 #import <AVFoundation/AVFoundation.h>
+#import "SmartCoreMotionKit.h"
 
 @implementation SmartBridge
 
@@ -65,8 +66,21 @@
         SmartTakePhotoKit *smartTakePhotoKit =  [SmartTakePhotoKit shareManager];
         [smartTakePhotoKit startGetPhotoWithBridgeback:responseCallback];
     }];
-    
-    
+    //开启传感器监听
+    [bridge registerHandler:@"startMotion" handler:^(id data, WVJBResponseCallback responseCallback) {
+        Boolean isSuccess = [[SmartCoreMotionKit shareManager] startGyMotion];
+        responseCallback(@{@"isSuccess":@(isSuccess)});
+    }];
+    //结束传感器监听
+    [bridge registerHandler:@"stopMotion" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [[SmartCoreMotionKit shareManager] stopGyMotion];
+    }];
+    //实时获取传感器数据
+    [bridge registerHandler:@"getMotionMessage" handler:^(id data, WVJBResponseCallback responseCallback) {
+//        [[SmartCoreMotionKit shareManager] pushMessageWithCallback:responseCallback];
+        [[SmartCoreMotionKit shareManager] pushGyMessageToWebWithBridge:bridge];
+        
+    }];
 }
 
 //webview历史回退
@@ -138,9 +152,6 @@
         return vc;
     }
 }
-
-
-
 
 
 @end

@@ -31,7 +31,7 @@
         [self localPhoto];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
+        self.callback = nil;
     }];
     [actionSheetController addAction:takePhotoAction];
     [actionSheetController addAction:pickAction];

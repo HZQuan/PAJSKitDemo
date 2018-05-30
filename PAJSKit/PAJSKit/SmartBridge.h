@@ -15,8 +15,6 @@ typedef void(^responseCallback)(id data);
 
 @interface SmartBridge : NSObject <UINavigationControllerDelegate, UIPickerViewDelegate>
 
-@property (nonatomic, strong) UIActionSheet *actionSheet;
-
 + (instancetype)shareManager;
 - (void)registerWithBridge:(WebViewJavascriptBridge *)bridge ;
 

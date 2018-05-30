@@ -22,6 +22,7 @@
 		27B6CA4B20BE52FD005110F6 /* SmartQRCodeScanningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B6CA4A20BE52FC005110F6 /* SmartQRCodeScanningVC.m */; };
 		27B6CA4D20BE549C005110F6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B6CA4C20BE549C005110F6 /* AVFoundation.framework */; };
 		27B6CA5020BE6FCE005110F6 /* SmartTakePhotoKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B6CA4F20BE6FCE005110F6 /* SmartTakePhotoKit.m */; };
+		27B6CA5320BE7DC6005110F6 /* SmartCoreMotionKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B6CA5220BE7DC6005110F6 /* SmartCoreMotionKit.m */; };
 		27D9A47A20BD725E00C6C3BA /* SmartWebViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D9A47920BD725E00C6C3BA /* SmartWebViewManager.m */; };
 		952A3F438ADEA0149A44648B /* libPods-PAJSKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E414B0CE3D32F03DDC8A3E /* libPods-PAJSKit.a */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,8 @@
 		27B6CA4C20BE549C005110F6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		27B6CA4E20BE6FCE005110F6 /* SmartTakePhotoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartTakePhotoKit.h; sourceTree = "<group>"; };
 		27B6CA4F20BE6FCE005110F6 /* SmartTakePhotoKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartTakePhotoKit.m; sourceTree = "<group>"; };
+		27B6CA5120BE7DC6005110F6 /* SmartCoreMotionKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartCoreMotionKit.h; sourceTree = "<group>"; };
+		27B6CA5220BE7DC6005110F6 /* SmartCoreMotionKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartCoreMotionKit.m; sourceTree = "<group>"; };
 		27D9A47820BD725E00C6C3BA /* SmartWebViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartWebViewManager.h; sourceTree = "<group>"; };
 		27D9A47920BD725E00C6C3BA /* SmartWebViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartWebViewManager.m; sourceTree = "<group>"; };
 		6B06D543A02BDF3BBEE21993 /* Pods-PAJSKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAJSKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PAJSKit/Pods-PAJSKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				27D9A47920BD725E00C6C3BA /* SmartWebViewManager.m */,
 				27B6CA4E20BE6FCE005110F6 /* SmartTakePhotoKit.h */,
 				27B6CA4F20BE6FCE005110F6 /* SmartTakePhotoKit.m */,
+				27B6CA5120BE7DC6005110F6 /* SmartCoreMotionKit.h */,
+				27B6CA5220BE7DC6005110F6 /* SmartCoreMotionKit.m */,
 			);
 			path = PAJSKit;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B6CA5320BE7DC6005110F6 /* SmartCoreMotionKit.m in Sources */,
 				27158E9420AC03980028CA41 /* SmartBridge.m in Sources */,
 				27158E9120AC01E60028CA41 /* SmartWKWebView.m in Sources */,
 				27B6CA5020BE6FCE005110F6 /* SmartTakePhotoKit.m in Sources */,
