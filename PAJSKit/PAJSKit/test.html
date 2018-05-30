@@ -80,7 +80,11 @@
             <br> <br>
             
             <input type="button" id="button" value="扫描二维码" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-            bridge.callHandler('Test1', {}, function responseCallback(responseData) {
+            bridge.callHandler('scanQRCode', {}, function responseCallback(responseData) {
+                javascript:setupWebViewJavascriptBridge(function(bridge) {
+                bridge.callHandler('Test1', {'key':responseData}, function responseCallback(responseData) {
+                })
+                })
             
             })
             })"/>
@@ -105,7 +109,7 @@
               })
               })"/>
               <br> <br>
-              <input type="button" id="button" value="显示隐藏头部" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
+              <input type="button" id="button" value="显示头部" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
               bridge.callHandler('showNavigationBar', {'key':'value'}, function responseCallback(responseData) {
               
               })
@@ -118,7 +122,7 @@
               })"/>
               <br> <br>
               <input type="button" id="button" value="头部title自定义" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-              bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+              bridge.callHandler('setTitle', {'title':'HelloWorld'}, function responseCallback(responseData) {
               
               })
               })"/>

@@ -1,22 +1,26 @@
 PODS:
+  - SGQRCode (2.2.0)
   - WebViewJavascriptBridge (6.0.3)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
+  - SGQRCode (~> 2.2.0)
   - WebViewJavascriptBridge (~> 6.0)
   - YYKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - SGQRCode
     - WebViewJavascriptBridge
     - YYKit
 
 SPEC CHECKSUMS:
+  SGQRCode: 6cd7f03ea6b74d1267820d427b07d1451b387c79
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 48691905f64a53a4f4f2c8a9643d9ba6cf4bb1d7
+PODFILE CHECKSUM: 324affb20045c687d9a9c1745b85e115e0651f59
 
 COCOAPODS: 1.5.2
