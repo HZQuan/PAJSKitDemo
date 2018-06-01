@@ -145,7 +145,7 @@
               })"/>
               <br> <br>
               <input type="button" id="button" value="获取定位" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-              bridge.callHandler('Test1', {'key':'value'}, function responseCallback(responseData) {
+              bridge.callHandler('getLocation', {'key':'value'}, function responseCallback(responseData) {
               
               })
               })"/>
@@ -157,13 +157,13 @@
               })"/>
               <br> <br>
               <input type="button" id="button" value="开始监听传感器" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-              bridge.callHandler('startMotion', {'key':'value'}, function responseCallback(responseData) {
+              bridge.callHandler('startObserveSensor', {'key':'value'}, function responseCallback(responseData) {
               
               })
               })"/>
               <br> <br>
               <input type="button" id="button" value="获取传感器数据" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-              bridge.callHandler('getMotionMessage', {'key':'value'}, function responseCallback(responseData) {
+              bridge.callHandler('getSensorMessage', {'key':'value'}, function responseCallback(responseData) {
               
               javascript:setupWebViewJavascriptBridge(function(bridge) {
               bridge.callHandler('Test1', {'key':responseData}, function responseCallback(responseData) {
@@ -175,7 +175,7 @@
               })"/>
               <br> <br>
               <input type="button" id="button" value="停止监听传感器" style="width:800px;height:100px;margin-top:50;" onclick="javascript:setupWebViewJavascriptBridge(function(bridge) {
-              bridge.callHandler('stopMotion', {'key':'value'}, function responseCallback(responseData) {
+              bridge.callHandler('stopObserveSensor', {'key':'value'}, function responseCallback(responseData) {
               
               })
               })"/>

@@ -8,6 +8,7 @@
 
 #import "SmartWebViewManager.h"
 
+
 @implementation SmartWebViewManager
 
 + (instancetype)shareManager {
@@ -17,6 +18,17 @@
         smartWebViewManager = [[SmartWebViewManager alloc] init];
     });
     return smartWebViewManager;
+}
+
+- (id)createWebView {
+    SmartWKWebView *smartWebView = [[SmartWKWebView alloc] init];
+    self.currentWebView = smartWebView;
+    return smartWebView;
+}
+
+- (void)preloadWebView {
+    SmartWKWebView *smartWebView = [[SmartWKWebView alloc] init];
+    [smartWebView loadHTMLString:@"" baseURL:nil];
 }
 
 @end

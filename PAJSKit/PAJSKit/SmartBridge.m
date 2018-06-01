@@ -11,6 +11,8 @@
 #import "SmartQRCodeScanningVC.h"
 #import <AVFoundation/AVFoundation.h>
 #import "SmartCoreMotionKit.h"
+#import "SmartCoreLocationKit.h"
+#import "SmartWebViewManager.h"
 
 @implementation SmartBridge
 
@@ -34,10 +36,6 @@
     [bridge registerHandler:@"closeWebView" handler:^(id data, WVJBResponseCallback responseCallback) {
         [self closeWebView];
     }];
-    //后退
-    [bridge registerHandler:@"gobackWebView" handler:^(id data, WVJBResponseCallback responseCallback) {
-        [self gobackWebViewPage];
-    }];
     
     //显示导航栏
     [bridge registerHandler:@"showNavigationBar" handler:^(id data, WVJBResponseCallback responseCallback) {
@@ -46,6 +44,16 @@
     //隐藏导航栏
     [bridge registerHandler:@"hiddenNavigationBar" handler:^(id data, WVJBResponseCallback responseCallback) {
         [self hiddenNavigationBar];
+    }];
+    //显示与隐藏导航栏头部
+    [bridge registerHandler:@"changeNavBarStatus" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSDictionary *dic = (NSDictionary *)data;
+        NSString *str = [[dic objectForKey:@"status"] stringValue];
+        if ([str isEqualToString:@"1"]) {
+              [self hiddenNavigationBar];
+        }else {
+              [self showNavigateionBar];
+        }
     }];
     //设置导航栏标题
     [bridge registerHandler:@"setTitle" handler:^(id data, WVJBResponseCallback responseCallback) {
@@ -67,31 +75,35 @@
         [smartTakePhotoKit startGetPhotoWithBridgeback:responseCallback];
     }];
     //开启传感器监听
-    [bridge registerHandler:@"startMotion" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [bridge registerHandler:@"startObserveSensor" handler:^(id data, WVJBResponseCallback responseCallback) {
         Boolean isSuccess = [[SmartCoreMotionKit shareManager] startGyMotion];
         responseCallback(@{@"isSuccess":@(isSuccess)});
     }];
     //结束传感器监听
-    [bridge registerHandler:@"stopMotion" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [bridge registerHandler:@"stopObserveSensor" handler:^(id data, WVJBResponseCallback responseCallback) {
         [[SmartCoreMotionKit shareManager] stopGyMotion];
     }];
     //实时获取传感器数据
-    [bridge registerHandler:@"getMotionMessage" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [bridge registerHandler:@"getSensorMessage" handler:^(id data, WVJBResponseCallback responseCallback) {
 //        [[SmartCoreMotionKit shareManager] pushMessageWithCallback:responseCallback];
         [[SmartCoreMotionKit shareManager] pushGyMessageToWebWithBridge:bridge];
         
     }];
+    [bridge registerHandler:@"getLocation" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [[SmartCoreLocationKit shareManager] startLocationWithBridge:responseCallback];
+    }];
+    
 }
 
-//webview历史回退
-- (Boolean)gobackWebViewPage {
-    if ([[SmartWebViewManager shareManager].currentWebView canGoBack]) {
-           [[SmartWebViewManager shareManager].currentWebView goBack];
-           return YES;
-    }else {
-        return NO;
-    }
-}
+////webview历史回退
+//- (Boolean)gobackWebViewPage {
+//    if ([[SmartWebViewManager shareManager].currentWebView canGoBack]) {
+//           [[SmartWebViewManager shareManager].currentWebView goBack];
+//           return YES;
+//    }else {
+//        return NO;
+//    }
+//}
 
 //显示导航栏
 - (void)showNavigateionBar {

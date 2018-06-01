@@ -29,7 +29,6 @@
 
 + (instancetype)createWebView;
 //调用web提供的js方法 name是web端注册的方法名，dictonary 我们传给js方法的参数 ，callback调用结果回调
--  (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary callBack:(responseCallback)callBack;
 -  (void)callHandlerWithName:(NSString *)name data:(NSDictionary *)dictionary;
 
 @end

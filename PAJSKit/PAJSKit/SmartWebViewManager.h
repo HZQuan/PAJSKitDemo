@@ -9,10 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
+#import "SmartWKWebView.h"
+
+
 
 @interface SmartWebViewManager : NSObject
 
+
 + (instancetype)shareManager;
+- (void)preloadWebView;
+- (SmartWKWebView*)createWebView;
+
+
 @property(nonatomic,strong)WKWebView *currentWebView;
+
 
 @end
